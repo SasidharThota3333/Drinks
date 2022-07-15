@@ -1,0 +1,63 @@
+{% extends 'MainHeader.html' %}
+{% load static %}
+{% block content %}
+<!doctype html>
+<html lang="en">
+  <style>
+    body {
+      background-image: url(https://images.pexels.com/photos/50593/coca-cola-cold-drink-soft-drink-coke-50593.jpeg?auto=compress&cs=tinysrgb&w=800);
+      background-size: cover;
+    }
+  </style>
+    <head>
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>Home</title>
+    </head>
+    <body>
+          <div class="container mt-5">
+            <a class="btn btn-success float-right mb-2" href="{% url 'AddDrink' %}">Add Drink</a>
+              <table class="table table-bordered bg-dark text-light">
+                    <thead>
+                      <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Email</th>
+                        <th>Price</th>
+                        <th colspan="2">Actions</th>
+                      </tr>
+                    </thead>
+                    
+                    
+                    <tbody>
+                      {% for dataframe in dataframes %}
+                      <tr>
+                        <td>{{dataframe.id}}</td>
+                        <td>{{dataframe.Name}}</td>
+                        <td>{{dataframe.Description}}</td>
+                        <td>{{dataframe.AvailableIN}}</td>
+                        <td>{{dataframe.Price}}</td>
+                        <td colspan="2">
+                          <div class="btn-group">
+                            <a class="btn btn-success float-right mb-2" href="{% url 'EditDrink' dataframe.id %}">Edit Drink</a>
+                            <a class="btn btn-danger float-right mb-2" href="{% url 'DeleteDrink' dataframe.id %}">Delete Drink</a>
+                          </div>
+                        </td>
+
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  
+                    
+                  </table>
+          </div>
+    </body>
+
+</html>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'MainHeader.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>Edit User</title>
+</head>
+
+<body>
+    <center>
+        <h1> Edit User to Database</h1>
+        </br>
+        <form action="" method="POST">
+            {% csrf_token%}
+            {{form.as_p}}
+            </br>
+            <input type="submit" value="Update" class="btn btn-primary">
+            <a class="btn btn-danger" href="{% url 'Home' %}">Cancel</a>
+        </form>
+    </center>
+
+</body>
+
+</html>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'MainHeader.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <html lang="en">
+    <head>
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>AddUser</title>
+    </head>
+    <body>
+        {% block content %}
+        <center>
+         <h1> Add Drink</h1>
+        </br>
+        </br>
+        {% if submitted %}
+        User Added Successfully
+        {% else %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p }}
+            <input type="submit" value="Submit" class="btn btn-success">
+           </form>
+        {% endif%}
+        
+     
+         </center>
+        {% endblock  %}
+
+    </body>
+  
+</html>
